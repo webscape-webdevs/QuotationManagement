@@ -1,0 +1,27 @@
+.imgdiv {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.choosediv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+  width: 81%;
+  margin: auto;
+  margin-top: 50px;
+}
+.btntag2 {
+  width: 178px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #d6193f;
+  color: white;
+  margin-left: 100px;
+  margin-top: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
