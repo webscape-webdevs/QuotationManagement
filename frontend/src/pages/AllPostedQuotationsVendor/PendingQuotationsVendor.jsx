@@ -113,7 +113,7 @@ export default function PendingQuotationsVendor() {
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 300 },
+    // { field: "_id", headerName: "ID", width: 300 },
     {
       field: "postId2",
       headerName: "Post Id",

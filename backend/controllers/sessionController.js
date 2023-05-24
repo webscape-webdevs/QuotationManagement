@@ -107,6 +107,23 @@ const sessionController = {
       return next(createError.InternalServerError(error));
     }
   },
+
+  update: async (req, res, next) => {
+    try {
+      const image = req.file;
+      if (image) {
+        const filePath = `/${image.destination}/${image.filename}`;
+
+        await UserSchema.findOneAndUpdate({ _id: req.user._id }, { $set: { ...req.body, profilePic: filePath } });
+      } else {
+        await UserSchema.findOneAndUpdate({ _id: req.user._id }, { $set: { ...req.body } });
+      }
+
+      res.sendStatus(204);
+    } catch (error) {
+      return next(createError.InternalServerError(error));
+    }
+  },
 };
 
 module.exports = sessionController;

@@ -69,6 +69,24 @@ form .flexSB input:nth-child(1) {
   font-size: 15px;
   word-spacing: 5px;
 }
+
+@media screen and (max-width: 1024px) {
+  .contacts .container {
+    flex-direction: column;
+  }
+
+  .map {
+    height: 400px !important;
+  }
+
+  .contacts iframe {
+    height: 50vh;
+  }
+  .contacts .row {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .contacts .container {
     flex-direction: column;

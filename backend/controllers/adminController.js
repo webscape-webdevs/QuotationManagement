@@ -3,6 +3,7 @@ const JobPostsSchema = require("../schemas/jobPostsSchema");
 const ProgramTitlesSchema = require("../schemas/programTitlesSchema");
 const HeroSchema = require("../schemas/heroSchema");
 const CertificationsSchema = require("../schemas/certificationsSchema");
+const QueriesSchema = require("../schemas/queriesSchema");
 const createError = require("http-errors");
 const bcrypt = require("bcryptjs");
 
@@ -70,7 +71,7 @@ const adminController = {
   addProgramTitle: async (req, res, next) => {
     try {
       const image = req.file;
-      const filePath = `http://localhost:8080/${image.destination}/${image.filename}`;
+      const filePath = `/${image.destination}/${image.filename}`;
       const { title } = req.body;
       const titleAded = await ProgramTitlesSchema.create({ title: title, image: filePath });
 
@@ -83,7 +84,7 @@ const adminController = {
   editProgramTitle: async (req, res, next) => {
     try {
       const image = req.file;
-      const filePath = `http://localhost:8080/${image.destination}/${image.filename}`;
+      const filePath = `/${image.destination}/${image.filename}`;
       const { title, id } = req.body;
 
       const titleAdded = await ProgramTitlesSchema.findOneAndUpdate({ _id: id }, { $set: { title: title, image: filePath } });
@@ -189,7 +190,7 @@ const adminController = {
     try {
       const image = req.file;
 
-      const filePath = `http://localhost:8080/${image.destination}/${image.filename}`;
+      const filePath = `/${image.destination}/${image.filename}`;
 
       const currentHero = await HeroSchema.findOne();
 
@@ -200,6 +201,35 @@ const adminController = {
         const hero = await HeroSchema.create({ image: filePath });
         res.status(200).json(hero);
       }
+    } catch (error) {
+      return next(createError.InternalServerError(error));
+    }
+  },
+
+  showCounter: async (req, res, next) => {
+    try {
+      const currentHero = await HeroSchema.findOne();
+
+      const hero = await HeroSchema.findOneAndUpdate({ _id: currentHero._id }, { $set: { counter: req.body.counter } });
+      res.status(200).json(hero);
+    } catch (error) {
+      return next(createError.InternalServerError(error));
+    }
+  },
+
+  getQueries: async (req, res, next) => {
+    try {
+      const queries = await QueriesSchema.find();
+      res.status(200).json(queries);
+    } catch (error) {
+      return next(createError.InternalServerError(error));
+    }
+  },
+
+  postQueries: async (req, res, next) => {
+    try {
+      const queries = await QueriesSchema.create({ ...req.body });
+      res.status(200).json(queries);
     } catch (error) {
       return next(createError.InternalServerError(error));
     }

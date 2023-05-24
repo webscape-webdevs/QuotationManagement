@@ -35,7 +35,7 @@
   position: absolute;
   rotate: -30deg;
   margin-right: 200px;
-  left: 310px;
+  left: 420px;
 }
 
 .free2 {
@@ -45,5 +45,85 @@
   position: absolute;
   rotate: -30deg;
   margin-right: 200px;
-  left: 380px;
+  left: 430px;
+}
+
+.navbar-brand {
+  width: 150px;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-main {
+  display: flex;
+  align-items: center;
+}
+
+.proilePicNavbar {
+  width: 50px;
+  height: 50px;
+  margin-right: 70px;
+  cursor: pointer;
+}
+
+.loginSignupButton {
+  background-color: #d6193f;
+  border-radius: 25px;
+  width: 150px;
+  margin-right: 70px;
+  border: none;
+}
+
+@media screen and (max-width: 1440px) {
+  .nav-link {
+    font-size: 20px;
+  }
+
+  .free {
+    font-size: 25px;
+    left: 150px;
+  }
+
+  .free2 {
+    font-size: 25px;
+    left: 300px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-link {
+    /* color: #d6193f !important; */
+    font-size: 15px;
+    margin-left: 5px;
+  }
+  .nav-item {
+    margin: 0px 5px;
+  }
+  .navbar-brand {
+    width: 120px;
+  }
+  .free {
+    top: 10px;
+    font-size: 20px;
+    left: 150px;
+  }
+
+  .free2 {
+    top: 10px;
+    font-size: 20px;
+    left: 150px;
+  }
+
+  .proilePicNavbar {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .loginSignupButton {
+    margin-right: 5px;
+  }
 }

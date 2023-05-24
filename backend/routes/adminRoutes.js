@@ -60,4 +60,9 @@ router.get("/getHero", adminController.getHero);
 
 router.post("/uploadHero", upload.single("image"), adminController.uploadHero);
 
+router.post("/showCounter", adminController.showCounter);
+
+router.get("/getQueries", adminController.getQueries);
+router.post("/postQueries", adminController.postQueries);
+
 module.exports = router;

@@ -18,26 +18,26 @@ const PopularCities = () => {
 
   return (
     <div>
-      <div>
+      <div className="chooseMain">
         <h1 style={{ marginTop: "50px", textAlign: "center" }}>
           Popular <span style={{ color: "#d6193f" }}>Cities</span>
         </h1>
         <div className="choosediv">
           <div className="imgdiv" onClick={() => handleSearch("Delhi")}>
-            <img style={{ width: "290px", height: "242px", borderRadius: "30px", filter: "brightness(0.6)" }} src={image1} alt="" />
-            <h4 style={{ position: "absolute", top: "97px", width: "280px", color: "white", textAlign: "center" }}>Delhi</h4>
+            <img className="chooseDivImage" src={image1} alt="" />
+            <h4 className="chooseDivText">Delhi</h4>
           </div>
           <div className="imgdiv" onClick={() => handleSearch("Mumbai")}>
-            <img style={{ width: "290px", height: "242px", borderRadius: "30px", filter: "brightness(0.6)" }} src={image2} alt="" />
-            <h4 style={{ position: "absolute", top: "97px", width: "280px", color: "white", textAlign: "center" }}>Mumbai</h4>
+            <img className="chooseDivImage" src={image2} alt="" />
+            <h4 className="chooseDivText">Mumbai</h4>
           </div>
           <div className="imgdiv" onClick={() => handleSearch("Chennai")}>
-            <img style={{ width: "290px", height: "242px", borderRadius: "30px", filter: "brightness(0.6)" }} src={image3} alt="" />
-            <h4 style={{ position: "absolute", top: "97px", width: "280px", color: "white", textAlign: "center" }}>Chennai</h4>
+            <img className="chooseDivImage" src={image3} alt="" />
+            <h4 className="chooseDivText">Chennai</h4>
           </div>
           <div className="imgdiv" onClick={() => handleSearch("kolkata")}>
-            <img style={{ width: "290px", height: "242px", borderRadius: "30px", filter: "brightness(0.6)" }} src={image4} alt="" />
-            <h4 style={{ position: "absolute", top: "97px", width: "280px", color: "white", textAlign: "center" }}>Kolkata</h4>
+            <img className="chooseDivImage" src={image4} alt="" />
+            <h4 className="chooseDivText">Kolkata</h4>
           </div>
         </div>
       </div>

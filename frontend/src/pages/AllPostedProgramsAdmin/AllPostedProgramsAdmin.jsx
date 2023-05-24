@@ -153,23 +153,26 @@ export default function AllPostedProgramsAdmin() {
   }, []);
 
   const columns = [
-    { field: "customerId2", headerName: "Customer ID", width: 300 },
+    { field: "customerId2", headerName: "Customer ID", width: 200 },
     {
       field: "title",
       headerName: "Title",
-      width: 200,
+      width: 250,
     },
-    { field: "location", headerName: "Location", width: 200 },
+    { field: "location", headerName: "Location", width: 100 },
     {
       field: "budget",
       headerName: "Budget",
       width: 100,
     },
-    {
-      field: "personCount",
-      headerName: "Person Count",
-      width: 100,
-    },
+    // {
+    //   field: "personCount",
+    //   headerName: "Person Count",
+    //   width: 100,
+    //   renderCell: (params) => {
+    //     return <span>{params.row.minPersonCount - params.row.maxPersonCount}</span>;
+    //   },
+    // },
     {
       field: "date",
       headerName: "Event Date",

@@ -130,7 +130,7 @@ export default function AllPostedQuotationsVendor() {
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 300 },
+    // { field: "_id", headerName: "ID", width: 300 },
     {
       field: "postId2",
       headerName: "Post Id",
@@ -276,7 +276,7 @@ export default function AllPostedQuotationsVendor() {
                 type="text"
                 required={true}
                 value={newSpocEmail}
-                placeholder="Enter Contact Number"
+                placeholder="Enter Email"
                 onChange={(e) => setNewSpocEmail(e.target.value)}
               ></input>
               <input

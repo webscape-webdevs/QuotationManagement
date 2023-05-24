@@ -12,27 +12,27 @@ const About = () => {
       <Freelancer />
       <div className="aboutMain">
         <h1 style={{ margin: "30px" }}>
-          Welcome to <span style={{ color: "#d6193f" }}>Helthique !!!</span>
+          Welcome to <span style={{ color: "#d6193f" }}>Healthique !!!</span>
         </h1>
         <div className="aboutMain-inner">
           <h2>
             About <span style={{ color: "#d6193f" }}>Us</span>
           </h2>
           <p>
-            <span style={{ fontWeight: "600" }}>Heathique</span> means <span style={{ fontWeight: "600" }}>Health + Unique,</span> which means Unique
+            <span style={{ fontWeight: "600" }}>Healthique</span> means <span style={{ fontWeight: "600" }}>Health + Unique,</span> which means Unique
             Health, Here we are India First Marketplace for Corporate Wellness and Healthcare Program, Where you can list your Wellness Program and
             Health Check (Annual, Pre Employement and Preventive).
           </p>
           <h2>
-            Why <span style={{ color: "#d6193f" }}>Helthique ?</span>
+            Why <span style={{ color: "#d6193f" }}>Healthique ?</span>
           </h2>
           <p>
-            <span style={{ fontWeight: "600" }}>Heathique</span> will provide transparency in your healthcare workshop and camps, we minimize your
+            <span style={{ fontWeight: "600" }}>Healthique</span> will provide transparency in your healthcare workshop and camps, we minimize your
             dependency on single source or vendor.
           </p>
 
           <h2>
-            Growth By <span style={{ color: "#d6193f" }}>Helthique</span>
+            Growth By <span style={{ color: "#d6193f" }}>Healthique</span>
           </h2>
           <p>
             Up to <span style={{ fontWeight: "600" }}>30% Growth</span> can be done by just one listing. Healthique has done market research that a
@@ -41,7 +41,7 @@ const About = () => {
           </p>
 
           <h2>
-            Network by <span style={{ color: "#d6193f" }}>Helthique</span>
+            Network by <span style={{ color: "#d6193f" }}>Healthique</span>
           </h2>
           <p>
             You can cover all network in <span style={{ fontWeight: "600" }}>Pan India</span>, Just in one listing in Healthqiue, Our Vendor are from

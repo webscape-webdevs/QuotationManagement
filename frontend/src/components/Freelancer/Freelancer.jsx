@@ -13,13 +13,16 @@ const Freelancer = () => {
 
   const [image, setImage] = useState("");
 
+  const [counter, setCounter] = useState(false);
+
   const { location, date } = useSelector((state) => state.searchSlice);
 
   const getHero = async () => {
     await axios
-      .get(`http://localhost:8080/api/admin/getHero`)
+      .get(`/api/admin/getHero`)
       .then(({ data }) => {
         setImage(data.image);
+        setCounter(data.counter);
       })
       .catch((err) => {
         console.log(err);
@@ -59,20 +62,12 @@ const Freelancer = () => {
 
   return (
     <div>
-      <div style={{ backgroundImage: `url(${image})`, height: "500px", width: "100%", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+      <div className="hero" style={{ backgroundImage: `url(${image})`, width: "100%", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
         <div className="FreelanceDiv">
-          <div style={{ display: "flex", flexDirection: "column", marginLeft: "150px", marginTop: "20px", width: "50%" }}>
-            {/* <div>
-              <h1 className="pragraphtag">Prevention is better then cure,</h1>
-            </div>
-            <p className="pragraph">Post your wellness program and GET Quote from Certified Labs, Hospital & Wellness Expert</p>
-            <p className="pragraph">Search Wellness Program in your location</p> */}
-
-            <div style={{ width: "40%", display: "flex", marginTop: "300px" }}>
+          <div className="heroMain">
+            <div className="whenWhere-div">
               <span className="when">Where?</span>
-              <span className="when" style={{ marginLeft: "150px" }}>
-                When?
-              </span>
+              <span className="when2">When?</span>
             </div>
 
             <form className="example" onSubmit={handleSearch}>
@@ -100,8 +95,12 @@ const Freelancer = () => {
                 <i className="fa fa-search"></i>
               </button>
             </form>
-            <span style={{ color: "black", fontSize: "25px" }}>{data.postedProgramsCount}</span>
-            <span style={{ color: "gray" }}>Programs Posted</span>
+            {counter ? (
+              <>
+                <span className="postedCount">{data.postedProgramsCount}</span>
+                <span style={{ color: "gray" }}>Programs Posted</span>
+              </>
+            ) : null}
           </div>
           <div style={{ display: "flex", flexDirection: "column", width: "50%" }}></div>
         </div>

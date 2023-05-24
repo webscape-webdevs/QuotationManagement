@@ -20,6 +20,8 @@ import { useSelector } from "react-redux";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AddCardIcon from "@mui/icons-material/AddCard";
 
+import MessageIcon from "@mui/icons-material/Message";
+
 export default function Sidebar() {
   const { sessionUser, isAuthenticated } = useSelector((state) => state.sessionSlice);
 
@@ -125,6 +127,20 @@ export default function Sidebar() {
                 <li className="sidebarListItem">
                   <AdminPanelSettingsIcon className="sidebarIcon" />
                   Change Hero
+                </li>
+              </Link>
+
+              <Link to="/editMembershipPlans" className="link">
+                <li className="sidebarListItem">
+                  <AdminPanelSettingsIcon className="sidebarIcon" />
+                  Edit Membership Plans
+                </li>
+              </Link>
+
+              <Link to="/queries" className="link">
+                <li className="sidebarListItem">
+                  <MessageIcon className="sidebarIcon" />
+                  Queries
                 </li>
               </Link>
             </ul>

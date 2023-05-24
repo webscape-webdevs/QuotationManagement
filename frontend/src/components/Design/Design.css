@@ -73,3 +73,24 @@
   width: 100%;
   font-size: 20px;
 }
+
+.programsContainer-1 {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .programsBox {
+    height: 180px;
+  }
+  .programsContainer-1 {
+    width: 90%;
+  }
+  .programsBox-title {
+    font-size: 25px;
+    font-weight: 600;
+  }
+}

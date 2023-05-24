@@ -10,11 +10,14 @@ export default function ChangeHero() {
 
   const [image2, setImage2] = useState("");
 
+  const [counter, setCounter] = useState(false);
+
   const getHero = async () => {
     await axios
       .get(`http://localhost:8080/api/admin/getHero`)
       .then(({ data }) => {
         setImage(data.image);
+        setCounter(data.counter);
       })
       .catch((err) => {
         console.log(err);
@@ -56,6 +59,17 @@ export default function ChangeHero() {
     }
   }, [image2]);
 
+  const handleChange = async (e) => {
+    await axios
+      .post(`/api/admin/showCounter`, { counter: e })
+      .then((res) => {
+        getHero();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="dashboard-wrapper">
       <Navbar />
@@ -68,6 +82,11 @@ export default function ChangeHero() {
             <input type="file" onChange={updateHeroImagesChange} />
             Upload New Image
           </label>
+          <div>
+            <span style={{ marginRight: "20px", fontSize: "25px", fontWeight: "600" }}>Show Program Counter</span>
+            <input className="showCounter" type="checkbox" checked={counter} onChange={(e) => handleChange(e.target.checked)}></input>
+          </div>
+
           <img style={{ width: "1000px", marginTop: "30px" }} src={image} alt="" />
         </div>
       </div>

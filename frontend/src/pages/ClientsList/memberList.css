@@ -1,6 +1,7 @@
 .memberList {
   flex: 5;
   height: 70vh;
+  width: 80%;
 }
 
 .userAddButton {

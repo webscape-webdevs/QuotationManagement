@@ -41,16 +41,26 @@ const Choose = () => {
 
   return (
     <div>
-      <div>
+      <div className="chooseMain">
         <h1 style={{ marginTop: "50px", textAlign: "center" }}>
           Popular <span style={{ color: "#d6193f" }}>Categories</span>
         </h1>
         <div className="choosediv">
-          {data?.slice(0, 4).map((e, index) => {
+          {data?.slice(0, 4).map((e) => {
             return (
-              <div key={index} className="imgdiv" onClick={() => handleSearch(e.title)}>
-                <img style={{ width: "290px", height: "241px", borderRadius: "20px", filter: "brightness(0.6)" }} src={e.image} alt="" />
-                <h4 style={{ position: "absolute", top: "97px", width: "280px", color: "white", textAlign: "center" }}>{e.title}</h4>
+              <div key={e._id} className="imgdiv" onClick={() => handleSearch(e.title)}>
+                <img className="chooseDivImage" src={e.image} alt="" />
+                <h4 className="chooseDivText">{e.title}</h4>
+              </div>
+            );
+          })}
+        </div>
+        <div className="choosediv">
+          {data?.slice(5, 9).map((e) => {
+            return (
+              <div key={e._id} className="imgdiv" onClick={() => handleSearch(e.title)}>
+                <img className="chooseDivImage" src={e.image} alt="" />
+                <h4 className="chooseDivText">{e.title}</h4>
               </div>
             );
           })}

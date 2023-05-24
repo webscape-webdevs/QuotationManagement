@@ -294,14 +294,14 @@ export default function DashboardCustomer() {
                         <span className="programsBox-button2" style={{ marginRight: "20px" }} onClick={() => handleOpenDetails(e)}>
                           View Details
                         </span>
-                        {(e.approvalStatus === "pending" || e.approvalStatus === "rejected") && (
+                        {(e.approvalStatus === "pending" || e.approvalStatus === "rejected" || e.approvalStatus === "expired") && (
                           <span className="programsBox-button2" onClick={() => handleOpenEdit(e)}>
                             Edit
                           </span>
                         )}
-                        {e.approvalStatus === "approved" && !e.isQuotationAccepted && (
+                        {(e.approvalStatus === "approved" || e.approvalStatus === "expired") && !e.isQuotationAccepted && (
                           <span className="programsBox-button2" onClick={() => handleOpenQuotations(e._id)}>
-                            View Quotations
+                            Quotations
                           </span>
                         )}
                         {e.isQuotationAccepted && (
@@ -313,9 +313,10 @@ export default function DashboardCustomer() {
                     </div>
                     <div style={{ margin: "5px 0px", display: "flex", alignItems: "center" }}>
                       <span style={{ fontWeight: "600", marginRight: "20px" }}>
-                        Status: {e.approvalStatus === "pending" && <span style={{ color: "#ffa800" }}>{e.approvalStatus.toUpperCase()}</span>}{" "}
+                        Status: {e.approvalStatus === "pending" && <span style={{ color: "#ffa800" }}>{e.approvalStatus.toUpperCase()}</span>}
                         {e.approvalStatus === "approved" && <span style={{ color: "green" }}>{e.approvalStatus.toUpperCase()}</span>}
                         {e.approvalStatus === "rejected" && <span style={{ color: "red" }}>{e.approvalStatus.toUpperCase()}</span>}
+                        {e.approvalStatus === "expired" && <span style={{ color: "red" }}>{e.approvalStatus.toUpperCase()}</span>}
                       </span>
                       {e.approvalStatus === "rejected" && (
                         <span style={{ fontWeight: "600" }}>

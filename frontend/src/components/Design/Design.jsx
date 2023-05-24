@@ -106,7 +106,7 @@ const Design = () => {
 
   return (
     <div>
-      <div style={{ display: "flex", flexDirection: "column", width: "80%", margin: "auto", marginTop: "30px" }}>
+      <div className="programsContainer-1">
         <div>
           <h1 style={{ marginTop: "50px", marginBottom: "30px" }}>
             Featured <span style={{ color: "#d6193f" }}>Programs</span>

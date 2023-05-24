@@ -7,7 +7,7 @@
 
 .monthlyYearly {
   display: flex;
-  width: 30%;
+  /* width: 30%; */
   justify-content: space-between;
 }
 
@@ -107,4 +107,66 @@
   font-size: 25px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.paymentFormContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.342);
+}
+
+.paymentForm {
+  width: 500px;
+}
+
+.cancleIcon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.planTitle {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.planText {
+  font-size: 20px;
+  font-weight: 400;
+  color: gray;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .plan {
+    width: 350px;
+  }
+
+  .recommendedPlan {
+    width: 350px;
+  }
+
+  .plansContainer {
+    width: 90%;
+  }
+
+  .priceDiv > span {
+    font-size: 20px;
+  }
+
+  .recommendedPlan-header > span {
+    font-size: 25px;
+  }
+
+  .planTitle {
+    font-size: 20px;
+  }
+
+  .planText {
+    font-size: 15px;
+  }
 }

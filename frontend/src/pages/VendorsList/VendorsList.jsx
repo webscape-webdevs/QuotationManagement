@@ -10,6 +10,10 @@ import axios from "axios";
 export default function VendorsList() {
   const [data, setData] = useState([]);
 
+  const [plans, setPlans] = useState([]);
+
+  const [subscriptions, setSubscripions] = useState([]);
+
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
@@ -24,6 +28,24 @@ export default function VendorsList() {
       .catch((err) => {
         console.log(err);
       });
+
+    await axios
+      .get(`/api/plans/getPlans`)
+      .then(({ data }) => {
+        setPlans(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    await axios
+      .get(`/api/plans/getSubscriptionAdmin`)
+      .then(({ data }) => {
+        setSubscripions(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -31,7 +53,7 @@ export default function VendorsList() {
   }, []);
 
   const columns = [
-    { field: "userId", headerName: "Vendor Id", width: 300 },
+    { field: "userId", headerName: "Vendor Id", width: 200 },
     {
       field: "username",
       headerName: "Vendor Name",
@@ -41,12 +63,41 @@ export default function VendorsList() {
     {
       field: "contactNumber",
       headerName: "Contact Number",
-      width: 200,
+      width: 150,
     },
     {
-      field: "programsCompleted",
-      headerName: "Programs Completed",
-      width: 200,
+      field: "activePlan",
+      headerName: "Current Plan",
+      width: 100,
+      renderCell: (params) => {
+        let sub = subscriptions.filter((e) => e.userId.toString() === params.row._id.toString());
+
+        if (sub.length) {
+          let plan = plans.filter((e) => e._id.toString() === sub[0].planId.toString());
+
+          return <span>{plan[0]?.title}</span>;
+        }
+      },
+    },
+    {
+      field: "planStatus",
+      headerName: "Plan Status ",
+      width: 100,
+      renderCell: (params) => {
+        let sub = subscriptions.filter((e) => e.userId.toString() === params.row._id.toString());
+
+        return <span style={sub[0]?.status === "Active" ? { color: "green" } : { color: "Red" }}>{sub[0]?.status}</span>;
+      },
+    },
+    {
+      field: "planExpire",
+      headerName: "Plan Expire Date",
+      width: 150,
+      renderCell: (params) => {
+        let sub = subscriptions.filter((e) => e.userId.toString() === params.row._id.toString());
+
+        return <span>{moment(sub[0]?.expireDate).format("DD/MM/YYYY")}</span>;
+      },
     },
     {
       field: "createdAt",

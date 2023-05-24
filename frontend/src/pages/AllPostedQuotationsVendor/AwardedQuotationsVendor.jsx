@@ -667,7 +667,7 @@ export default function AwardedQuotationsVendor() {
                 type="text"
                 required={true}
                 value={newSpocEmail}
-                placeholder="Enter Name"
+                placeholder="Enter Email"
                 onChange={(e) => setNewSpocEmail(e.target.value)}
               ></input>
               <input

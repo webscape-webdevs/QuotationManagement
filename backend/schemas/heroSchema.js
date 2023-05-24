@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const heroSchema = new Schema({
   image: { type: Schema.Types.String },
+  counter: { type: Schema.Types.Boolean },
   createdAt: { type: Schema.Types.Date, default: Date.now },
 });
 

@@ -21,7 +21,7 @@ const jobPostsController = {
 
       postCount = postCount + 1;
 
-      let postId = `POST${postCount}`;
+      let postId = `PROGRAM${postCount}`;
 
       const newJobPost = await JobPostsSchema.create({ customerId2: user.userId, postId: postId, customerId: user._id, ...req.body });
 
@@ -257,8 +257,55 @@ const jobPostsController = {
           let details = {
             from: process.env.EMAIL,
             to: customer.email,
-            subject: "SPOC Details Submitted by Vendor",
-            html: `<p>SPOC Details are Submitted by Vendor !!! <b>Link</b></p>`,
+            subject: "SPOC Details of your Program",
+            html: `	<p>Dear,
+            <br/>
+            <br/>
+      Please find the SPOC Details of your Program Awarded to our vendor as below :
+            <br/>
+            <br/>
+      Program ID :- ${jobPost.postId}
+            <br/>
+      Program Name : ${jobPost.title}
+            <br/>
+      Vendor Name : ${jobPost.vendorDetails.username}
+            <br/>
+      SPOC Name : ${newSpocName}
+            <br/>
+      SPOC Email Id : ${newSpocEmail}
+            <br/>
+      SPOC Mobile Number : ${newSpocContact}
+            <br/>
+            <br/>
+      SPOC and Vendor Details are also available in our portal, 
+            <br/>
+            <br/>
+      Note : Kindly Discuss and Signed LOI or P.O and Payment Term with Client for the project or program at your end for safer side. You can mention Program ID on LOI / P.O for the reference.
+            <br/>
+            <br/>
+      We are looking forward to more programs.
+            <br/>
+            <br/>
+      We are happy that you choose our services,
+            <br/>
+            <br/>
+            <br/>
+      Be Unique in wellness with Healthique
+            <br/>
+            <br/>
+            <br/>
+      With regards,
+            <br/>
+            <br/>
+            <br/>
+      Healthique Team
+            <br/>
+      care@healthique.in
+            <br/>
+            <br/>
+            <br/>
+      This is Auto generated Email or newsletter, please do not reply to this email. For more information please contact our support team at care@healthique.in
+          </p>`,
           };
 
           mailTransporter.sendMail(details);

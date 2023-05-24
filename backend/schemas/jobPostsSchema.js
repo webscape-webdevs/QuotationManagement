@@ -19,7 +19,7 @@ const jobPostsSchema = new Schema({
   minPersonCount: { type: Schema.Types.String },
   maxPersonCount: { type: Schema.Types.String },
   lastQuotationDate: { type: Schema.Types.String },
-  approvalStatus: { type: Schema.Types.String, default: "pending", enum: ["pending", "rejected", "approved"] },
+  approvalStatus: { type: Schema.Types.String, default: "pending", enum: ["pending", "rejected", "approved", "expired"] },
   isQuotationAccepted: { type: Schema.Types.Boolean, default: "false" },
   acceptedQuotationDetails: {
     quotation: { type: Schema.Types.String },

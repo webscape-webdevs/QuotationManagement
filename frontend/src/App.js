@@ -38,6 +38,9 @@ import AddAdmins from "./pages/AllPostedProgramsAdmin/AddAdmins";
 import ChangeHero from "./pages/AllPostedProgramsAdmin/ChangeHero";
 import About from "./pages/About/About";
 import TermsOfUse from "./pages/TermsOfUse/TermsOfUse";
+import EditMembershipPlans from "./pages/AllPostedProgramsAdmin/EditMembershipPlans";
+import Profile from "./pages/Profile/Profile";
+import Queries from "./pages/AllPostedProgramsAdmin/Queries";
 // import About from "./pages/About/About";
 
 function App() {
@@ -84,6 +87,9 @@ function App() {
         <Route path="/sendNewsletters" element={<SendNewsletter />} />
         <Route path="/createAdmins" element={<AddAdmins />} />
         <Route path="/changeHero" element={<ChangeHero />} />
+        <Route path="/editMembershipPlans" element={<EditMembershipPlans />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/queries" element={<Queries />} />
       </Routes>
     </BrowserRouter>
   );
